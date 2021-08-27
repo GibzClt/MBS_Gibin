@@ -33,10 +33,10 @@ const useStyles = makeStyles((theme) => ({
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <ImageList className={classes.imageList}  cols={6} rowHeight="180">
+      <ImageList className={classes.imageList}  cols={6} rowHeight={180}>
             {moviesData.map((item)=>(
               <ImageListItem key={item.id}>
-                <img src={item.poster_url} alt="poster" />
+                <img src={item.poster_url} alt={item.title} />
                 <ImageListItemBar 
                   title={item.title}
                   classes={{
@@ -51,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
   );
 }
 
+const dateConverter=dateEntry=>{
+  let myDate = new Date(dateEntry);
+  return myDate.toDateString();
+}
+
 class Home extends React.Component{
   render(){
     return(
@@ -58,6 +63,21 @@ class Home extends React.Component{
         <Header />
         <span id="upcoming-mov">Upcoming Movies</span>
         <SingleLineImageList />
+        <div className="flex-container">
+          <div className="left">
+            <ImageList rowHeight={350} cols={4} gap={10}>
+              {moviesData.map((item)=>(
+                <ImageListItem key={item.id}>
+                  <img className="img-link" src={item.poster_url} alt={item.title} />
+                  <ImageListItemBar
+                  title={item.title}
+                  subtitle={<span>{"Release Date:  " + dateConverter(item.release_date)}</span>}
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          </div>
+        </div>
       </div>
     )
   }
