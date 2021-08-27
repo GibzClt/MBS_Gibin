@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from "./common/header/Header";
-// import './index.css';
+import Home from "./screens/home/Home";
+import './index.css';
+
 
 ReactDOM.render(
     <div>
-      <Header />
+      <Home />
     </div>
 ,
   document.getElementById('root')
