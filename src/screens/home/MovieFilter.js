@@ -10,6 +10,8 @@ import genres from "../../common/genre";
 import MenuItem from '@material-ui/core/MenuItem';
 import Checkbox from '@material-ui/core/Checkbox';
 import artists from "../../common/artists";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -19,12 +21,13 @@ class MovieFilter extends React.Component{
     this.state = {
       movieName: "",
       genre: [],
-      genreChecked: [],
-      artist: []
+      artist: [],
+      releaseDateStart: "",
+      releaseDateEnd: ""
     }
   }
   handleChange = (event) =>{
-    const {name, value, type, checked} = event.target;
+    const {name, value, type} = event.target;
     switch(type){
       case "select": this.setState(prevState => ({
         [name] : [...prevState[name], value]
@@ -60,6 +63,7 @@ class MovieFilter extends React.Component{
               }}
               multiple
               renderValue={()=>this.renderInside("genre")}
+              autoWidth={true}
               >
                 {genres.map((item, index)=>(
                   <MenuItem
@@ -83,6 +87,7 @@ class MovieFilter extends React.Component{
               }}
               multiple
               renderValue={()=>this.renderInside("artist")}
+              autoWidth={true}
               >
                 {artists.map((item, index)=>(
                   <MenuItem
@@ -94,9 +99,38 @@ class MovieFilter extends React.Component{
                 ))}
                </Select>
           </FormControl>
+          <br />
+          <FormControl>
+            <TextField
+              label ="Release Date Start"
+              InputLabelProps={{shrink: true}}
+              type="date"
+              name="releaseDateStart"
+              onChange={this.handleChange}
+              value={this.state.releaseDateStart}
+              />
+          </FormControl>
+          <FormControl>
+            <TextField
+              label ="Release Date End"
+              InputLabelProps={{shrink: true}}
+              type="date"
+              name="releaseDateEnd"
+              onChange={this.handleChange}
+              value={this.state.releaseDateEnd}
+              />
+          </FormControl>
+          <br />
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth={true}
+          >APPLY</Button>
           <h2>{this.state.movieName}</h2>
           <h2>{this.state.genre}</h2>
           <h2>{this.state.artist}</h2>
+          <h2>{this.state.releaseDateStart}</h2>
+          <h2>{this.state.releaseDateEnd}</h2>
         </CardContent>
       </Card>
     )
