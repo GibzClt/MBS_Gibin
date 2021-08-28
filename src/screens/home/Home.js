@@ -1,11 +1,13 @@
 import React from "react";
-import Header from "../../common/header/Header"
-import "./Home.css"
+import Header from "../../common/header/Header";
+import "./Home.css";
 import ImageList from '@material-ui/core/ImageList';
-import moviesData from  "../../common/moviesData"
+import moviesData from  "../../common/moviesData";
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import { makeStyles } from '@material-ui/core/styles';
+import MovieFilter from "./MovieFilter";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -76,6 +78,9 @@ class Home extends React.Component{
                 </ImageListItem>
               ))}
             </ImageList>
+          </div>
+          <div className="right">
+                <MovieFilter />
           </div>
         </div>
       </div>
