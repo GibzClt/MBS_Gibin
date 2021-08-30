@@ -14,7 +14,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 
-
 class MovieFilter extends React.Component{
   constructor(props){
     super(props);
@@ -38,7 +37,12 @@ class MovieFilter extends React.Component{
       })
     }
   }
-
+  shouldComponentUpdate(nextProps, nextState){
+    if(JSON.stringify(this.state) !== JSON.stringify(nextState)){
+      return true;
+    }
+    return false;
+  }
   renderInside = (item) =>{
     return this.state[item].length > 1 ? this.state[item].join(", ") : this.state[item];
   }
@@ -125,6 +129,7 @@ class MovieFilter extends React.Component{
             variant="contained"
             color="primary"
             fullWidth={true}
+            onClick={()=>this.props.func(this.state)}
           >APPLY</Button>
           <h2>{this.state.movieName}</h2>
           <h2>{this.state.genre}</h2>
