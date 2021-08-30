@@ -12,6 +12,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import artists from "../../common/artists";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { createTheme } from '@material-ui/core/styles';
+
 
 
 class MovieFilter extends React.Component{
@@ -47,16 +49,24 @@ class MovieFilter extends React.Component{
     return this.state[item].length > 1 ? this.state[item].join(", ") : this.state[item];
   }
   render(){
+    let theme = createTheme();
+    let titleColor = theme.palette.primary.light;
+    let componentMargin = theme.spacing(1);
+    let componentStyle={
+      minWidth: 240,
+      maxWidth: 240,
+      margin: componentMargin
+    }
     return (
       <Card>
-        <CardHeader title="FIND MOVIES BY: "/>
-        <CardContent className="check">
-          <FormControl>
+        <CardHeader style={{...componentStyle, color: titleColor}}title="FIND MOVIES BY: "/>
+        <CardContent>
+          <FormControl style={componentStyle}>
           <InputLabel htmlFor="movie-name">Movie Name</InputLabel>
           <Input id="movie-name" name="movieName" value={this.state.movieName} onChange={this.handleChange} aria-describedby="enter-movie-name" />
           </FormControl>
           <br/>
-          <FormControl>
+          <FormControl style={componentStyle}>
             <InputLabel htmlFor="genres-list">Genres</InputLabel>
             <Select
               onChange={this.handleChange}
@@ -80,7 +90,7 @@ class MovieFilter extends React.Component{
                </Select>
           </FormControl>
           <br />
-          <FormControl>
+          <FormControl style={componentStyle}>
             <InputLabel htmlFor="artists-list">Artists</InputLabel>
             <Select
               onChange={this.handleChange}
@@ -104,7 +114,7 @@ class MovieFilter extends React.Component{
                </Select>
           </FormControl>
           <br />
-          <FormControl>
+          <FormControl style={componentStyle}>
             <TextField
               label ="Release Date Start"
               InputLabelProps={{shrink: true}}
@@ -114,7 +124,7 @@ class MovieFilter extends React.Component{
               value={this.state.releaseDateStart}
               />
           </FormControl>
-          <FormControl>
+          <FormControl style={componentStyle}>
             <TextField
               label ="Release Date End"
               InputLabelProps={{shrink: true}}
@@ -128,14 +138,9 @@ class MovieFilter extends React.Component{
           <Button
             variant="contained"
             color="primary"
-            fullWidth={true}
+            style={componentStyle}
             onClick={()=>this.props.func(this.state)}
           >APPLY</Button>
-          <h2>{this.state.movieName}</h2>
-          <h2>{this.state.genre}</h2>
-          <h2>{this.state.artist}</h2>
-          <h2>{this.state.releaseDateStart}</h2>
-          <h2>{this.state.releaseDateEnd}</h2>
         </CardContent>
       </Card>
     )

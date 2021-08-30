@@ -39,11 +39,6 @@ class Home extends React.Component{
           </div>
           <div className="right">
             <MovieFilter func={this.copyState} />
-            <h2>{this.state.movieName}</h2>
-            <h2>{this.state.genre}</h2>
-            <h2>{this.state.artist}</h2>
-            <h2>{this.state.releaseDateStart}</h2>
-            <h2>{this.state.releaseDateEnd}</h2>
           </div>
         </div>
       </div>
