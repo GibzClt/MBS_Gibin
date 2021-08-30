@@ -16,15 +16,13 @@ class Home extends React.Component{
       releaseDateEnd: ""
     }
   }
-  copyState = (s1) =>{
-    // console.log("This is ", this);
-    // console.log("BUt s1 is", s1);
+  copyState = (otherState) =>{
     this.setState({
-      artist: s1.artist.slice(),
-      genre: s1.genre.slice(),
-      movieName: s1.movieName,
-      releaseDateStart: s1.releaseDateStart,
-      releaseDateEnd: s1.releaseDateEnd
+      artist: otherState.artist.slice(),
+      genre: otherState.genre.slice(),
+      movieName: otherState.movieName,
+      releaseDateStart: otherState.releaseDateStart,
+      releaseDateEnd: otherState.releaseDateEnd
     })
   }
   render(){
