@@ -40,14 +40,17 @@ class ArtistDetails extends React.Component{
     return(
       <>
         <Typography>
-          Rate this movie:
+          <strong>Rate this movie:</strong>
         </Typography>
         <StarBorderIcon className="rate-star" style={{color:this.state.starColor[0]}} onClick={()=>this.setColor(0)}/>
         <StarBorderIcon className="rate-star" style={{color:this.state.starColor[1]}} onClick={()=>this.setColor(1)}/>
         <StarBorderIcon className="rate-star" style={{color:this.state.starColor[2]}} onClick={()=>this.setColor(2)}/>
         <StarBorderIcon className="rate-star" style={{color:this.state.starColor[3]}} onClick={()=>this.setColor(3)}/>
         <StarBorderIcon className="rate-star" style={{color:this.state.starColor[4]}} onClick={()=>this.setColor(4)}/>
-        <Typography style={{margin: "16px 0 16px 0"}}>Artists: </Typography>
+        <Typography
+          style={{margin: "16px 0 16px 0"}}  
+        ><strong>Artists: </strong>
+        </Typography>
         <ImageList cols={2} gap={5}>
           {moviesData[this.state.movieId].artists.map((item)=>(
             <ImageListItem key={item.id}>

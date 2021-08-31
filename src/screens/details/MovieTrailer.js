@@ -12,14 +12,20 @@ class MovieTrailer extends React.Component{
       movieId : 2
     }
   }
+  topMargin = {marginTop: 16};
+  dateConverter=dateEntry=>{
+    let myDate = new Date(dateEntry);
+    return myDate.toDateString();
+  }
   render(){
     return(
       <>
         <Typography
           variant="h6"
           component="h2"
+          color="primary"
         >
-          {moviesData[this.state.movieId].title}
+          {moviesData[this.state.movieId].title.toLocaleUpperCase()}
         </Typography>
         {/* <br /> */}
         <Typography>
@@ -34,7 +40,7 @@ class MovieTrailer extends React.Component{
         {/* <br /> */}
         <Typography>
           <strong>Release Date: </strong>
-          {moviesData[this.state.movieId].release_date} 
+          {this.dateConverter(moviesData[this.state.movieId].release_date)} 
         </Typography>
         {/* <br /> */}
         <Typography>
@@ -42,21 +48,19 @@ class MovieTrailer extends React.Component{
           {moviesData[this.state.movieId].critics_rating} 
         </Typography>
         {/* <br /> */}
-        <Typography>
+        <Typography style={this.topMargin}>
           <strong>Plot: </strong>
           <a href={moviesData[this.state.movieId].wiki_url}>[Wiki Link]</a>
           {moviesData[this.state.movieId].storyline} 
         </Typography>
         {/* <br /> */}
-        <Typography>
+        <Typography style={this.topMargin}>
           <strong>Trailer: </strong>
         </Typography>
-        <div className="trailer">
-          <YouTube
-            videoId={moviesData[this.state.movieId].trailer_url.split("?v=")[1]}
-            id="sY1S34973zA"
-          />
-        </div>
+        <YouTube className="trailer"
+          videoId={moviesData[this.state.movieId].trailer_url.split("?v=")[1]}
+          id="sY1S34973zA"
+        />
       </>
     )
   }

@@ -36,6 +36,7 @@ html, body{
   /* background-color: chocolate; */
   align-items: center;
   margin-top: 16px;
+  width:100%;
 }
 .rate-star:hover{
   color: yellow;
