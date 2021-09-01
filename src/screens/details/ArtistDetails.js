@@ -14,23 +14,12 @@ class ArtistDetails extends React.Component{
     }
   }
   setColor = (index) =>{
-    let newArr = [...this.state.starColor];
-    const changedColor = newArr[index] === "black" ? "yellow" : "black";
-    if(changedColor === "yellow"){
-      if(index === 0){
-        newArr[index] = changedColor;
-      }else{
-        newArr[index] = newArr[index - 1] === changedColor ? changedColor : newArr[index];
-      }
-    } else{
-      if(index === this.state.starColor.length - 1){
-        newArr[index] = changedColor;
-      }else{
-        newArr[index] = newArr[index + 1] === changedColor ? changedColor : newArr[index];
-      }
+    let newArr = ["black", "black", "black", "black", "black"];
+    let i = index;
+    while(i >= 0){
+      newArr[i] = "yellow";
+      i--;
     }
-    console.log(newArr);
-    console.log(this.state.starColor);
     this.setState({
       starColor: newArr
     })

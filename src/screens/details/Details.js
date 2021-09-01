@@ -33,7 +33,6 @@ class Details extends React.Component{
             <ArtistDetails movieId={this.state.movieId} />
           </div>
         </div>
-        
       </div>
     )
   }

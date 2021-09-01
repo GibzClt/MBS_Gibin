@@ -1,6 +1,5 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import moviesData from "../../common/moviesData";
 import "./Details.css";
