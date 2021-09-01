@@ -28,7 +28,7 @@ class Home extends React.Component{
   render(){
     return(
       <div id="home-main">
-        <Header />
+        <Header showBtns={false}/>
         <span id="upcoming-mov">Upcoming Movies</span>
         <SingleLineImageList />
         <div className="flex-container">
