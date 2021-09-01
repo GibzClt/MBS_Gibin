@@ -17,7 +17,7 @@ class Details extends React.Component{
   render(){
     return (
       <div>
-        <Header />
+        <Header showBtns={true} />
         <div className="back-to-home">
           <BackToHome />
         </div>

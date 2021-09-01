@@ -3,12 +3,12 @@
   height: 36px;
   padding: 8px 32px 8px 16px;
   display: flex;
+  justify-content: space-between;
 }
 #logo-img{
   background: #ff7f7f;
   height: 35px;
   animation: logo-anim 8s linear 0s infinite normal forwards;
-  justify-self: flex-start;
 }
 @keyframes logo-anim {
   0%{
@@ -26,4 +26,14 @@
   100%{
     transform: rotate(360deg);
   }
+}
+
+.btn-group{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.btn:hover{
+  cursor: pointer;
 }
