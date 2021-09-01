@@ -15,7 +15,6 @@ class Details extends React.Component{
     }
   }
   render(){
-    console.log("Iam the PROPS", this.props);
     return (
       <div>
         <Header />
