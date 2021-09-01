@@ -1,5 +1,6 @@
 import Typography from '@material-ui/core/Typography';
 import React from "react";
+import {Link} from "react-router-dom";
 import "./Details.css";
 
 
@@ -8,7 +9,7 @@ const BackToHome = () =>{
     <Typography style={{cursor: "pointer", width: "max-content"}} 
       gutterBottom={true}
     >
-      <a>{"< Back to Home"}</a>
+      <Link to="/">{"< Back to Home"}</Link>
     </Typography>
   )
 }

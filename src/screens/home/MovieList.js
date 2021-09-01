@@ -3,6 +3,7 @@ import ImageList from '@material-ui/core/ImageList';
 import moviesData from  "../../common/moviesData";
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import { Link } from "react-router-dom";
 
 class MovieList extends React.Component{
   dateConverter=dateEntry=>{
@@ -37,13 +38,15 @@ class MovieList extends React.Component{
     }
     return (
       <ImageList rowHeight={350} cols={4} gap={10}>
-        {filteredMovies.map((item)=>(
+        {filteredMovies.map((item, index)=>(
           <ImageListItem key={item.id}>
+            <Link to={`/detail?id=${index}`}>
             <img className="img-link" src={item.poster_url} alt={item.title} />
             <ImageListItemBar
               title={item.title}
               subtitle={<span>{"Release Date:  " + this.dateConverter(item.release_date)}</span>}
             />
+            </Link>
           </ImageListItem>
         ))}
       </ImageList>

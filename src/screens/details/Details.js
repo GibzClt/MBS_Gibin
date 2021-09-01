@@ -8,7 +8,14 @@ import ArtistDetails from "./ArtistDetails";
 
 
 class Details extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      movieId: parseInt(this.props.location.search.split("?id=")[1])
+    }
+  }
   render(){
+    console.log("Iam the PROPS", this.props);
     return (
       <div>
         <Header />
@@ -17,13 +24,13 @@ class Details extends React.Component{
         </div>
         <div className="main-page">
           <div className="movie-poster">
-            <MoviePoster />
+            <MoviePoster movieId={this.state.movieId} />
           </div>
           <div className="movie-trailer">
-            <MovieTrailer />
+            <MovieTrailer movieId={this.state.movieId} />
           </div>
           <div className="artist-details">
-            <ArtistDetails />
+            <ArtistDetails movieId={this.state.movieId} />
           </div>
         </div>
         

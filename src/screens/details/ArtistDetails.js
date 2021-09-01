@@ -10,7 +10,6 @@ class ArtistDetails extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      movieId: 2,
       starColor: ["black", "black", "black", "black", "black"]
     }
   }
@@ -52,7 +51,7 @@ class ArtistDetails extends React.Component{
         ><strong>Artists: </strong>
         </Typography>
         <ImageList cols={2} gap={5}>
-          {moviesData[this.state.movieId].artists.map((item)=>(
+          {moviesData[this.props.movieId].artists.map((item)=>(
             <ImageListItem key={item.id}>
               <img src={item.profile_url} alt={item.first_name + " " + item.last_name} />
               <ImageListItemBar

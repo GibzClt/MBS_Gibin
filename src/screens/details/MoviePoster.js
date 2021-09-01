@@ -6,17 +6,11 @@ import "./Details.css";
 
 
 class MoviePoster extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      movieSelected : ""
-    }
-  }
   render(){
     return(
       <ImageList rowHeight={450} cols={1}>
         <ImageListItem key="Demo id">
-          <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg" alt="Demo for now" />
+          <img src={moviesData[this.props.movieId].poster_url} alt={`${moviesData[this.props.movieId].title} poster`} />
         </ImageListItem>
       </ImageList>
     )

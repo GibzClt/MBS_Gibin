@@ -19,6 +19,9 @@
 
 .img-link{
   cursor: pointer;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .right{
   width: 24%;
