@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css"
-import logo from "./logo.svg";
+import logo from "../../assests/logo.svg";
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 
