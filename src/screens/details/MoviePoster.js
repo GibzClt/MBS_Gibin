@@ -4,7 +4,7 @@ import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from '@material-ui/core/ImageListItem';
 import "./Details.css";
 
-
+// Displays the poster of the movie
 class MoviePoster extends React.Component{
   render(){
     return(

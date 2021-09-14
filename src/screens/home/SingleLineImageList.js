@@ -25,23 +25,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Display the list of upcoming movies
 const SingleLineImageList = function () {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <ImageList className={classes.imageList}  cols={6} rowHeight={180}>
-            {moviesData.map((item)=>(
-              <ImageListItem key={item.id}>
-                <img src={item.poster_url} alt={item.title} />
-                <ImageListItemBar 
-                  title={item.title}
-                  classes={{
-                    root: classes.titleBar,
-                    title: classes.title,
-                  }}
-                />
-              </ImageListItem>
-            ))}
+        {moviesData.map((item)=>(
+          <ImageListItem key={item.id}>
+            <img src={item.poster_url} alt={item.title} />
+            <ImageListItemBar 
+              title={item.title}
+              classes={{
+                root: classes.titleBar,
+                title: classes.title,
+              }}
+            />
+          </ImageListItem>
+        ))}
       </ImageList>
     </div>
   );

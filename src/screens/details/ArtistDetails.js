@@ -6,6 +6,7 @@ import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 
+// Displays the rating bar and artist details
 class ArtistDetails extends React.Component{
   constructor(props){
     super(props);
@@ -13,6 +14,7 @@ class ArtistDetails extends React.Component{
       starColor: ["black", "black", "black", "black", "black"]
     }
   }
+  // function to enable the user to rate the movie
   setColor = (index) =>{
     let newArr = ["black", "black", "black", "black", "black"];
     let i = index;
