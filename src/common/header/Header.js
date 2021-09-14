@@ -4,7 +4,7 @@ import logo from "../../assests/logo.svg";
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 
-
+// Displays the header which comprises of the logo and the required buttons
 class Header extends React.Component{
   constructor(props){
     super(props);
@@ -12,7 +12,9 @@ class Header extends React.Component{
       isLoggedIn: false
     }
   }
+  // function to set the text of the "login" button
   setText = () => this.state.isLoggedIn? "LOG OUT" : "LOGIN";
+  // function to implement a mock feature of logging in and logging out
   setLogin = () => {
     this.setState((prevState)=>({
       isLoggedIn : !prevState.isLoggedIn

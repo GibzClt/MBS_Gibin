@@ -6,7 +6,7 @@ import MoviePoster from "./MoviePoster";
 import MovieTrailer from "./MovieTrailer";
 import ArtistDetails from "./ArtistDetails";
 
-
+// Displays the details page
 class Details extends React.Component{
   constructor(props){
     super(props);

@@ -4,15 +4,15 @@ import YouTube from "react-youtube";
 import moviesData from "../../common/moviesData";
 import "./Details.css";
 
-
+// Displays the movie info and the trailer
 class MovieTrailer extends React.Component{
   topMargin = {marginTop: 16};
+  // function to convert date object to string
   dateConverter=dateEntry=>{
     let myDate = new Date(dateEntry);
     return myDate.toDateString();
   }
   ready = (event) => {
-    // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
   render(){
@@ -25,33 +25,27 @@ class MovieTrailer extends React.Component{
         >
           {moviesData[this.props.movieId].title.toLocaleUpperCase()}
         </Typography>
-        {/* <br /> */}
         <Typography>
           <strong>Genre: </strong>
           {moviesData[this.props.movieId].genres.join(", ")} 
         </Typography>
-        {/* <br /> */}
         <Typography>
           <strong>Duration: </strong>
           {moviesData[this.props.movieId].duration + " min"} 
         </Typography>
-        {/* <br /> */}
         <Typography>
           <strong>Release Date: </strong>
           {this.dateConverter(moviesData[this.props.movieId].release_date)} 
         </Typography>
-        {/* <br /> */}
         <Typography>
           <strong>Rating: </strong>
           {moviesData[this.props.movieId].critics_rating} 
         </Typography>
-        {/* <br /> */}
         <Typography style={this.topMargin}>
           <strong>Plot: </strong>
           <a href={moviesData[this.props.movieId].wiki_url}>[Wiki Link]</a>
           {moviesData[this.props.movieId].storyline} 
         </Typography>
-        {/* <br /> */}
         <Typography style={this.topMargin}>
           <strong>Trailer: </strong>
         </Typography>

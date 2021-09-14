@@ -5,6 +5,7 @@ import MovieList from "./MovieList";
 import MovieFilter from "./MovieFilter";
 import SingleLineImageList from "./SingleLineImageList";
 
+// Displays the home page
 class Home extends React.Component{
   constructor(props){
     super(props);
@@ -16,6 +17,7 @@ class Home extends React.Component{
       releaseDateEnd: ""
     }
   }
+  // getting the filter details from the MovieFilter component
   copyState = (otherState) =>{
     this.setState({
       artist: otherState.artist.slice(),

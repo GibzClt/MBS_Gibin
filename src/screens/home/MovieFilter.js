@@ -14,8 +14,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { createTheme } from '@material-ui/core/styles';
 
-
-
+// Displays the movie filter component
 class MovieFilter extends React.Component{
   constructor(props){
     super(props);
@@ -27,6 +26,7 @@ class MovieFilter extends React.Component{
       releaseDateEnd: ""
     }
   }
+  // function to control the form input
   handleChange = (event) =>{
     const {name, value, type} = event.target;
     switch(type){
@@ -39,12 +39,14 @@ class MovieFilter extends React.Component{
       })
     }
   }
+  // function to avoid re-rendering in case the values don't change
   shouldComponentUpdate(nextProps, nextState){
     if(JSON.stringify(this.state) !== JSON.stringify(nextState)){
       return true;
     }
     return false;
   }
+  // function to display selected items in the Select component
   renderInside = (item) =>{
     return this.state[item].length > 1 ? this.state[item].join(", ") : this.state[item];
   }
